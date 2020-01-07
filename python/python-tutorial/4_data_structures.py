@@ -95,8 +95,64 @@ nested_tuple = (origin, (1, 1, 1)) # can contain any type
 # === Set ===
 # unordered collection with no duplicate elements
 empty_set = set() # empty set (we can't use {})
-set_1 = set('John', 'Joana') # create a set with two name
-set_2 = {'John', 'Joana'} # create the same set but using curly braces
+set_1 = { 'John', 'Joana' } # create a set with two name
+set_2 = set(['John', 'Joana']) # create the same set but using set
+
+unique_letters = set('Joana') # unique letters from the string
 
 'John' in set_1 # True
+
+# we can operate over them
+a = set('john')
+b = set('joana')
+
+a - b # letters in a but not in b
+a | b # OR: letters in a or b
+a & b # AND: letters in a and b
+a ^ b # XOR: letters in a or b but not both
+
+# comprehension
+{x for x in 'abracadabra' if x not in 'abc'}
+
+
+# === Dictionaries ===
+# collection of key-value where the key could be any immutable type
+empty = {}
+ages = {'john': 42, 'joana': 24}
+
+ages = dict([('john', 42), ('joana', 24)])
+
+ages['john'] # 42
+ages['john'] = 43
+
+ages['lucio'] = 15
+
+del ages['lucio']
+
+list(ages) # list of keys
+
+sorted(ages) # list of sorted keys
+
+'john' in ages # True
+
+
+# === Looping techniques ===
+
+# we can use items() to loop through key-value
+for name, age in ages.items():
+    print(name, ':', age)
+
+# loop a sequence getting the index
+for index, hero in enumerate(['hulk', 'wolverine', 'professor x']):
+    print(index, hero)
+
+# loop over two sequences
+countries = ['Brazil', 'France', 'USA']
+cities = ['Sao Paulo', 'Paris', 'New York']
+for country, city in zip(countries, cities):
+    print('{1} is in {0}'.format(country, city))
+
+# loop over a sequence in reverse
+for i in reversed(range(1, 10, 2)):
+    print(i)
 
