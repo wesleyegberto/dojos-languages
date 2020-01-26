@@ -13,6 +13,13 @@ elif x == 0:
 else:
     print('Positive number')
 
+# ternary
+val = 10 if x > 10 else 20
+
+# nested ternary
+val = False if x < 10 else True if x > 10 else 0
+val = False if x < 10 else (True if x > 10 else 0)
+
 
 # === for ===
 # unlike other languages where they give you the control over the iteration
@@ -66,3 +73,25 @@ for num in range(2, 10):
 def some_function():
     pass # remember to implement
 
+
+# === try/catch ===
+try:
+    x = 1 / 0
+expect ZeroDivisionError:
+    print('Can divide by 0')
+    raise # raise the same exception
+expect (TypeError, RuntimeError) as err:
+    print('Strange error:', err)
+else:
+    print('No error =)')
+finally:
+    print('Always runs')
+
+# We can catch subclass of Exception
+class A(Exception):
+    pass
+
+try:
+    raise A()
+expect A:
+    print('Error A was thrown')

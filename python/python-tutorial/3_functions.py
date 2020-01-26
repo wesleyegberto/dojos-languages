@@ -9,16 +9,18 @@ def func_name():
     """
     docstring to document the function.
     A function always returns a value. If we don't return the compile will introduce `None`.
+
+    If we set a value to a var it will declare it local, otherwise will use the global.
     """
     my_global = 42
-    return 42
+    return my_global
 
 print(func_name)
 new_var = func_name
 print(new_var)
 
-print(func_name())
-
+print(func_name()) # prints 42
+print(my_global) # 10
 
 # === Default values ===
 def ask_ok(prompt, retries=3, reminder='Please try again!'):
@@ -64,6 +66,20 @@ def g_nice(a, L=None):
 print(f(1))
 print(f(2))
 print(f(3))
+
+
+def counter():
+    num = 0
+    def incrementer():
+        nonlocal num # transform it to be nonlocal (can be used outside of counter scope)
+        num += 1
+        return num
+    return incrementer
+
+c = counter()
+c() # = 1
+c() # = 2
+c() # = 3
 
 
 # === Keyword Arguments ===
