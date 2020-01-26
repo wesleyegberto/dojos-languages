@@ -1,25 +1,49 @@
 # Basic Types and Operations
+# - bool
 # - int
+# - complex
 # - float
 # - string
 # - list
+# - set
+# - tuple
 # - map
 
 # === Numerical Types ===
 
-# Basic Types 
+# Basic Types
+
+is_true = True
+is_false = False
+
+# bool is subtype of int
+issubclass(bool, int) # true
+isinstance(True, int) # true
+isinstance(False, int) # true
+
+True + False # 1 + 0
+True * True # 1 * 1
+False - False # 0 - 0
 
 # integer numbers have type `int`
 x = 2
 y = 3
 z = 100
+type(x) # <type 'int'>
+
+k = int('123') # converting
+k = int('1.3') # ValueError
 
 # fractional part have type `float`
 weight = 102.3
 size = 15.35
 
+pi = float('3.14')
+type(pi) # <type 'float'>
+
 # complex numbers (sufix `j` or `J`)
-(2 + 3J) + (1 + 3j)
+r = (2 + 3J) + (1 + 3j)
+type(r) # <type 'complext'>
 
 
 # Basic Operations
@@ -38,14 +62,15 @@ size = 15.35
 5 ** 2 # 25
 2 ** 7 # 128
 
- 
+
 # === Strings ===
 # can be single or double quotes
 name = 'John Doe'
 power = "fly"
 nickname = 'John\'s Lost'
+type(name)
 
-# we can use `r` to not escape the \n
+# we can use `r` to not escape the \
 raw_string = r'C:\Users\nonsense'
 
 # multiline string
@@ -58,7 +83,7 @@ Multiline string
 # concat
 "Hello" + " " + "World"
 
-# two or more string letals will be concatened
+# two or more string literals will be concatened
 "Hello" " " "World"
 text = ("Here is a line easy to read "
        " and here is its continuation.")
@@ -94,7 +119,7 @@ numbers[-1] # 4
 numbers[-3:] # [2, 3, 4]
 # shallow copy (keeping same reference)
 copy = numbers[:]
- 
+
 # list concat
 long_numbers = numbers + [5, 6, 7, 8, 9]
 

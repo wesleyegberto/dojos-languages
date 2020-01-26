@@ -1,9 +1,10 @@
-# Data Structures
+ Data Structures
 
 # By convension, the mutable methods return always None.
 
 # === List ===
 list = [1, 2]
+letters = list('world') # list of letters
 
 list.append(3) # insert at the end
 list.extend([4, 5]) # insert all at the end
@@ -51,6 +52,7 @@ matrix = [ [1, 2, 3], [4, 5, 6], [7, 8, 9] ]
 
 matrix_T = [[row[i] for row in matrix] for i in range(3)]
 
+# unpacking the rows
 matrix_T = list(zip(*matrix))
 
 
@@ -80,7 +82,11 @@ queue.popleft() # 1
 origin = 0, 0, 0 # we can ommit the parentheses sometimes (when the expression is not so complex)
 
 empty = ()
-singleton = 'one', # ('one',): we must provide comma at the end 
+tuple_of_letters = tuple('hello') # tuple of letters from the word
+
+single = tuple(['one'])
+single = ('one',)
+single = 'one', # ('one',): we must provide comma at the end
 
 # origin[0] = 1 # error
 
@@ -93,12 +99,12 @@ nested_tuple = (origin, (1, 1, 1)) # can contain any type
 
 
 # === Set ===
-# unordered collection with no duplicate elements
+# unordered collection with no duplicate elements, the elements must be hashable (implements `__hash__()` and `__eq__()`)
 empty_set = set() # empty set (we can't use {})
 set_1 = { 'John', 'Joana' } # create a set with two name
 set_2 = set(['John', 'Joana']) # create the same set but using set
 
-unique_letters = set('Joana') # unique letters from the string
+unique_letters = set('Joana') # set of letters from the string
 
 'John' in set_1 # True
 
@@ -121,6 +127,9 @@ empty = {}
 ages = {'john': 42, 'joana': 24}
 
 ages = dict([('john', 42), ('joana', 24)])
+
+for key in ages.keys():
+    print('{} is {} years old'.format(key, ages[key]))
 
 ages['john'] # 42
 ages['john'] = 43
