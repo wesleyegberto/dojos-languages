@@ -1,0 +1,1 @@
+serverless invoke local -f hello -p offline/sqs-event.json

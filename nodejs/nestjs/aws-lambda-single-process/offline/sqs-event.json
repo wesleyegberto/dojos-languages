@@ -1,0 +1,15 @@
+{
+  "path": "/ts",
+  "method": "GET",
+  "pathParameters": {
+    "ID": 1
+  },
+  "records": [
+    {
+      "body": {
+        "version": "0",
+        "id": "f562c86d-d71c-a7eb-f01d-f13158aa770b"
+      }
+    }
+  ]
+}

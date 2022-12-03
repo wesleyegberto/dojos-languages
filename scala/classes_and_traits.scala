@@ -1,6 +1,6 @@
 class Animal
 
-// Criate a class with private attr power
+// Create a class with private attr power
 class Weapon(var power: Double) { // var is mutable
     // void method
     def increase: Unit = {

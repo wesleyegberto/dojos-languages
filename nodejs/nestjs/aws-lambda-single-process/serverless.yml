@@ -1,0 +1,44 @@
+service:
+  name: single-process
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: us-east-1
+  tracing:
+    apiGateway: true
+    lambda: true
+
+package:
+  exclude:
+    - .git/**
+    - src/**
+    - test/**
+    - e2e/**
+    - README
+    - run_local.sh
+    - webpack.config.js
+
+custom:
+  queueName: QueueSlsTypescriptNestjs
+
+functions:
+  hello:
+    handler: dist/main.handler
+    description: "Lambda para testar Nestjs com SQS"
+    events:
+      - http:
+          path: ts
+          method: get
+      - sqs:
+          arn:
+            Fn::GetAtt:
+              - queueSlsTypescriptNestjs
+              - Arn
+
+resources:
+  Resources:
+    queueSlsTypescriptNestjs:
+      Type: AWS::SQS::Queue
+      Properties:
+        QueueName: ${self:custom.queueName}
